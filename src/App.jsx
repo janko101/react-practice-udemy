@@ -27,6 +27,7 @@ const App = (props) => {
       <Person
         name={personsState.persons[0].name}
         age={personsState.persons[0].age}
+        click={switchPersonsHandler}
       />
       <Person
         name={personsState.persons[1].name}
