@@ -9,6 +9,7 @@ class App extends Component {
       { name: "Helena", age: 28 },
       { name: "Nikica", age: 29 },
     ],
+    showPersons: false
   };
 
   switchPersonsHandler = (newName) => {
@@ -30,6 +31,11 @@ class App extends Component {
       ],
     });
   };
+
+  togglePersonsHandler = () => {
+    const displayPersons = this.state.showPersons
+    this.setState({ showPersons: !displayPersons})
+  }
 
   render() {
     const buttonStyle = {
