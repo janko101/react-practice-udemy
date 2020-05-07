@@ -11,10 +11,10 @@ class App extends Component {
     ],
   };
 
-  switchPersonsHandler = (newName, newAge) => {
+  switchPersonsHandler = (newName) => {
     this.setState({
       persons: [
-        { name: newName, age: newAge },
+        { name: newName, age: 29 },
         { name: "Janko", age: 36 },
         { name: "Helena", age: 28 },
       ],
@@ -29,17 +29,29 @@ class App extends Component {
         { name: "Nikica", age: 29 },
       ],
     });
-  }
+  };
 
   render() {
+    const buttonStyle = {
+      backgroundColor: "white",
+      font: "inherit",
+      border: "1.5px solid blue",
+      padding: '16px',
+      cursor: "pointer",
+    };
     return (
       <div className="App">
         <h1>Hi, there!</h1>
-        <button onClick={() => this.switchPersonsHandler('Nikitaa')}>Switch Name</button>
+        <button
+          style={buttonStyle}
+          onClick={() => this.switchPersonsHandler("Nikitaa")}
+        >
+          Switch Name
+        </button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
-          click={this.switchPersonsHandler.bind(this, 'Nikita')}
+          click={this.switchPersonsHandler.bind(this, "Nikita")}
         />
         <Person
           name={this.state.persons[1].name}
