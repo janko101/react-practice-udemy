@@ -36,6 +36,7 @@ class App extends Component {
       backgroundColor: "white",
       font: "inherit",
       border: "1.5px solid blue",
+      boxShadow: "0px 2px 15px blue",
       padding: '16px',
       cursor: "pointer",
     };
@@ -44,9 +45,9 @@ class App extends Component {
         <h1>Hi, there!</h1>
         <button
           style={buttonStyle}
-          onClick={() => this.switchPersonsHandler("Nikitaa")}
+          onClick={this.togglePersonsHandler}
         >
-          Switch Name
+          Toggle Persons
         </button>
         <Person
           name={this.state.persons[0].name}
