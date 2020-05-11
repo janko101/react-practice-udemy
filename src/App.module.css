@@ -31,6 +31,11 @@ cursor: pointer;
   color: black;
 }
 
+.Button.Red {
+  background-color: red;
+  box-shadow: 0px 2px 15px red;
+}
 
-
-
+.Button.Red:hover {
+  background-color: salmon;
+}
