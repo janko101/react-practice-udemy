@@ -1,6 +1,22 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Components/Person";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+  background-color: blue;
+  color: white;
+  font: inherit;
+  border: 1.5px solid blue;
+  box-shadow: 0px 2px 15px blue;
+  padding: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lightblue;
+    color: black;
+  }
+`;
 
 class App extends Component {
   state = {
@@ -43,19 +59,6 @@ class App extends Component {
   };
 
   render() {
-    const buttonStyle = {
-      backgroundColor: "blue",
-      color: "white",
-      font: "inherit",
-      border: "1.5px solid blue",
-      boxShadow: "0px 2px 15px blue",
-      padding: "16px",
-      cursor: "pointer",
-      ":hover": {
-        backgroundColor: "lightblue",
-        color: "black",
-      },
-    };
 
     let persons = null;
 
@@ -75,12 +78,12 @@ class App extends Component {
           })}
         </div>
       );
-      buttonStyle.backgroundColor = "red";
-      buttonStyle.boxShadow = "0px 2px 15px red";
-      buttonStyle[":hover"] = {
-        backgroundColor: "salmon",
-        color: "black",
-      };
+      // buttonStyle.backgroundColor = "red";
+      // buttonStyle.boxShadow = "0px 2px 15px red";
+      // buttonStyle[":hover"] = {
+      //   backgroundColor: "salmon",
+      //   color: "black",
+      // };
     }
     let classes = [];
 
@@ -94,13 +97,13 @@ class App extends Component {
       classes.push("italic");
     }
     return (
-        <div className="App">
-          <h1 className={classes.join(" ")}>Hi, there!</h1>
-          <button style={buttonStyle} onClick={this.togglePersonsHandler}>
-            Toggle Persons
-          </button>
-          {persons}
-        </div>
+      <div className="App">
+        <h1 className={classes.join(" ")}>Hi, there!</h1>
+        <StyledButton  onClick={this.togglePersonsHandler}>
+          Toggle Persons
+        </StyledButton>
+        {persons}
+      </div>
     );
   }
 }
