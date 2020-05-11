@@ -74,10 +74,20 @@ class App extends Component {
       buttonStyle.backgroundColor = 'red'; 
       buttonStyle.boxShadow = "0px 2px 15px red"
     }
-    let classes = ['red', 'bold', 'italic'].join(' ')
+    let classes = []
+
+    if (this.state.persons.length <= 2) {
+      classes.push('red')
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold')
+    }
+    if (this.state.persons.length === 0) {
+      classes.push('italic')
+    }
     return (
       <div className="App">
-        <h1 className={classes}>Hi, there!</h1>
+        <h1 className={classes.join(' ')}>Hi, there!</h1>
         <button style={buttonStyle} onClick={this.togglePersonsHandler}>
           Toggle Persons
         </button>
