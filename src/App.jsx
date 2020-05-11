@@ -44,7 +44,8 @@ class App extends Component {
 
   render() {
     const buttonStyle = {
-      backgroundColor: "white",
+      backgroundColor: "blue",
+      color: "white",
       font: "inherit",
       border: "1.5px solid blue",
       boxShadow: "0px 2px 15px blue",
@@ -70,6 +71,8 @@ class App extends Component {
           })}
         </div>
       );
+      buttonStyle.backgroundColor = 'red'; 
+      buttonStyle.boxShadow = "0px 2px 15px red"
     }
     return (
       <div className="App">
