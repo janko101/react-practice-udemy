@@ -1,23 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
+import classes from './App.module.css'
 import Person from "./Components/Person";
-import styled from "styled-components";
-
-const StyledButton = styled.button`
-  background-color: ${(props) => (props.alt ? "red" : "blue")};
-  color: white;
-  font: inherit;
-  border: 1.5px solid blue;
-  box-shadow: ${(props) =>
-    props.alt ? "0px 2px 15px red" : "0px 2px 15px blue"};
-  padding: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => (props.alt ? "salmon" : "lightblue")};
-    color: black;
-  }
-`;
 
 class App extends Component {
   state = {
@@ -85,26 +68,25 @@ class App extends Component {
       //   color: "black",
       // };
     }
-    let classes = [];
+    let assignClasses = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push("red");
+      assignClasses.push(classes.red);
     }
     if (this.state.persons.length <= 1) {
-      classes.push("bold");
+      assignClasses.push(classes.bold);
     }
     if (this.state.persons.length === 0) {
-      classes.push("italic");
+      assignClasses.push(classes.italic);
     }
     return (
-      <div className="App">
-        <h1 className={classes.join(" ")}>Hi, there!</h1>
-        <StyledButton
-          alt={this.state.showPersons}
+      <div className={classes.App}>
+        <h1 className={assignClasses.join(" ")}>Hi, there!</h1>
+        <button className={classes.Button}
           onClick={this.togglePersonsHandler}
         >
           Toggle Persons
-        </StyledButton>
+        </button>
         {persons}
       </div>
     );
