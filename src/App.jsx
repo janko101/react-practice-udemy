@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Components/Person";
-import Radium from "radium"
+import Radium, { StyleRoot } from "radium";
 
 class App extends Component {
   state = {
@@ -14,21 +14,21 @@ class App extends Component {
   };
 
   changeNameHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(p => {
-      return p.id === id
-    })
+    const personIndex = this.state.persons.findIndex((p) => {
+      return p.id === id;
+    });
 
     const person = {
-      ...this.state.persons[personIndex]
-    }
+      ...this.state.persons[personIndex],
+    };
 
-    person.name = event.target.value
-    
-    const persons = [...this.state.persons]
-    persons[personIndex] = person
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
 
     this.setState({
-      persons: persons 
+      persons: persons,
     });
   };
 
@@ -38,9 +38,9 @@ class App extends Component {
   };
 
   deletePersonHandler = (personIndex) => {
-    const persons = [...this.state.persons]
-    persons.splice(personIndex, 1)
-    this.setState({persons: persons})
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
   };
 
   render() {
@@ -52,10 +52,10 @@ class App extends Component {
       boxShadow: "0px 2px 15px blue",
       padding: "16px",
       cursor: "pointer",
-      ':hover': {
-        backgroundColor: 'lightblue',
-        color: "black"
-      }
+      ":hover": {
+        backgroundColor: "lightblue",
+        color: "black",
+      },
     };
 
     let persons = null;
@@ -70,38 +70,40 @@ class App extends Component {
                 name={person.name}
                 age={person.age}
                 key={person.id}
-                changed={(event)=> this.changeNameHandler(event, person.id)}
+                changed={(event) => this.changeNameHandler(event, person.id)}
               />
             );
           })}
         </div>
       );
-      buttonStyle.backgroundColor = 'red'; 
-      buttonStyle.boxShadow = "0px 2px 15px red"
-      buttonStyle[':hover'] = {
-        backgroundColor: 'salmon',
-        color: "black"
-      }
+      buttonStyle.backgroundColor = "red";
+      buttonStyle.boxShadow = "0px 2px 15px red";
+      buttonStyle[":hover"] = {
+        backgroundColor: "salmon",
+        color: "black",
+      };
     }
-    let classes = []
+    let classes = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push('red')
+      classes.push("red");
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold')
+      classes.push("bold");
     }
     if (this.state.persons.length === 0) {
-      classes.push('italic')
+      classes.push("italic");
     }
     return (
-      <div className="App">
-        <h1 className={classes.join(' ')}>Hi, there!</h1>
-        <button style={buttonStyle} onClick={this.togglePersonsHandler}>
-          Toggle Persons
-        </button>
-        {persons}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1 className={classes.join(" ")}>Hi, there!</h1>
+          <button style={buttonStyle} onClick={this.togglePersonsHandler}>
+            Toggle Persons
+          </button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
   }
 }
