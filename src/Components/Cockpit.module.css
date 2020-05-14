@@ -1,0 +1,36 @@
+.red {
+  color: red;
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.Button {
+  background-color: blue;
+  color: white;
+  font: inherit;
+  border: 1.5px solid blue;
+  box-shadow: 0px 2px 15px blue;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.Button:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+.Button.Red {
+  background-color: red;
+  box-shadow: 0px 2px 15px red;
+}
+
+.Button.Red:hover {
+  background-color: salmon;
+}
