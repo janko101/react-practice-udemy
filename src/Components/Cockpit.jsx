@@ -21,7 +21,7 @@ const Cockpit = (props) => {
 
   return (
     <div>
-      <h1 className={assignClasses.join(" ")}>Hi, there!</h1>
+      <h1 className={assignClasses.join(" ")}>{props.title}</h1>
       <button className={btnClass.join(" ")} onClick={props.clicked}>
         Toggle Persons
       </button>
