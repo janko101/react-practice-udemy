@@ -6,24 +6,22 @@ import Cockpit from './Components/Cockpit'
 class App extends Component {
   constructor(props) {
     super(props)
-    console.log('App.jsx constructor')
-    this.state = {
-      persons: [
-        { id: 1, name: "Janko", age: 36 },
-        { id: 2, name: "Helena", age: 28 },
-        { id: 3, name: "Nikica", age: 29 },
-      ],
-      showPersons: false,
-    };
+    console.log('[App.jsx], constructor')
   }
-  // state = {
-  //   persons: [
-  //     { id: 1, name: "Janko", age: 36 },
-  //     { id: 2, name: "Helena", age: 28 },
-  //     { id: 3, name: "Nikica", age: 29 },
-  //   ],
-  //   showPersons: false,
-  // };
+
+  state = {
+    persons: [
+      { id: 1, name: "Janko", age: 36 },
+      { id: 2, name: "Helena", age: 28 },
+      { id: 3, name: "Nikica", age: 29 },
+    ],
+    showPersons: false,
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.jsx], getDerivedStateFromProps', props)
+    return state
+  }
 
   changeNameHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex((p) => {
@@ -56,6 +54,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('[App.jsx], rendering...')
     let persons = null;
 
     if (this.state.showPersons) {
