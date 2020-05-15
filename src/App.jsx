@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import classes from "./App.module.css";
-<<<<<<< HEAD
-import PersonsList from "./Components/PersonsList";
-import Cockpit from "./Components/Cockpit";
-=======
-import Person from "./Components/Person";
-import ErrorBoundary from "./Components/ErrorBoundary";
->>>>>>> 9024d6c7d511ad297d60f4d3e82518470f0e3f69
+import PersonsList from './Components/PersonsList'
+import Cockpit from './Components/Cockpit'
 
 class App extends Component {
   state = {
