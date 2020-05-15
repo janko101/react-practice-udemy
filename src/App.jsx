@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import classes from "./App.module.css";
-import PersonsList from './Components/PersonsList'
-import Cockpit from './Components/Cockpit'
+import PersonsList from "./Components/PersonsList";
+import Cockpit from "./Components/Cockpit";
 
 class App extends Component {
   constructor(props) {
-    super(props)
-    console.log('[App.jsx], constructor')
+    super(props);
+    console.log("[App.jsx], constructor");
   }
 
   state = {
@@ -19,12 +19,12 @@ class App extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    console.log('[App.jsx], getDerivedStateFromProps', props)
-    return state
+    console.log("[App.jsx], getDerivedStateFromProps", props);
+    return state;
   }
 
   componentDidMount() {
-    console.log('[App.jsx], componentDidMount')
+    console.log("[App.jsx], componentDidMount");
   }
 
   changeNameHandler = (event, id) => {
@@ -58,7 +58,7 @@ class App extends Component {
   };
 
   render() {
-    console.log('[App.jsx], rendering...')
+    console.log("[App.jsx], rendering...");
     let persons = null;
 
     if (this.state.showPersons) {
