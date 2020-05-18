@@ -85,7 +85,7 @@ class App extends Component {
     }
 
     return (
-      <WithClass classes={classes.App}>
+      <>
         <button
           onClick={() => {
             this.setState({ showCockpit: false });
@@ -102,9 +102,9 @@ class App extends Component {
           />
         ) : null}
         {persons}
-      </WithClass>
+      </>
     );
   }
 }
 
-export default App;
+export default WithClass(App, classes.App);
