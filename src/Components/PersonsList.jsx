@@ -2,14 +2,18 @@ import React, { Component } from "react";
 import Person from "./Person";
 
 class PersonsList extends Component {
-  static getDerivedStateFromProps(props, state) {
-    console.log("[PersonsList.jsx], getDerived state from props");
-    return state;
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log("[PersonsList.jsx], getDerived state from props");
+  //   return state;
+  // }
 
-  componentShouldUpdate(nextProps, nextState) {
-    console.log("[PersonsList.jsx], componentShould update");
-    return true;
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("[PersonsList.jsx], shouldComponentUpdate");
+    if (nextProps.persons !== this.props.persons) {
+      return true
+    } else {
+      return false
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
