@@ -4,15 +4,23 @@ import Person from "./Person";
 class PersonsList extends Component {
 
   static getDerivedStateFromProps(props, state) {
-    console.log('[PersonsList], getDerived state from props')
+    console.log('[PersonsList.jsx], getDerived state from props')
     return state
   }
 
   componentShouldUpdate(nextProps, nextState) {
-    console.log('[PersonsList], componentShould update')
+    console.log('[PersonsList.jsx], componentShould update')
     return true
   }
-  
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('[PersonsList.jsx], getSnapShotBeforeUpdate')
+  }
+
+  componentDidUpdate() {
+    console.log('[PersonsList.jsx], componentDidUpdate')
+  }
+
   render() {
     console.log("[PersonsList], rendering...");
     return this.props.persons.map((person, index) => {
