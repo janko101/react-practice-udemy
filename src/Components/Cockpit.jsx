@@ -4,10 +4,11 @@ import classes from "./Cockpit.module.css";
 const Cockpit = (props) => {
   useEffect(() => {
     console.log("[Cockpit.jsx], UseEffect");
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       alert('I am the alert!')
     }, 500);
     return () => {
+      clearTimeout(timer)
       console.log("[Cockpit.jsx], cleanup work in useEffect");
     };
   }, []);
