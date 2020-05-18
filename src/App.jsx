@@ -16,6 +16,7 @@ class App extends Component {
       { id: 3, name: "Nikica", age: 29 },
     ],
     showPersons: false,
+    showCockpit: true,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -28,12 +29,12 @@ class App extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("[App.jsx], shouldComponentUpdate")
-    return true
+    console.log("[App.jsx], shouldComponentUpdate");
+    return true;
   }
 
   componentDidUpdate() {
-    console.log("[App.jsx], componentDidUpdate")
+    console.log("[App.jsx], componentDidUpdate");
   }
 
   changeNameHandler = (event, id) => {
@@ -84,12 +85,17 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <Cockpit
-          title={this.props.appTitle}
-          persons={this.state.persons}
-          showPersons={this.state.showPersons}
-          clicked={this.togglePersonsHandler}
-        />
+        <button onClick={() => this.setState({ showCockpit: false })}>
+          Remove Cockpit
+        </button>
+        {this.state.showCockpit ? (
+          <Cockpit
+            title={this.props.appTitle}
+            persons={this.state.persons}
+            showPersons={this.state.showPersons}
+            clicked={this.togglePersonsHandler}
+          />
+        ) : null}
         {persons}
       </div>
     );
