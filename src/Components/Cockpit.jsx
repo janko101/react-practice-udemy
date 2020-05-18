@@ -4,8 +4,8 @@ import classes from "./Cockpit.module.css";
 const Cockpit = (props) => {
   useEffect(() => {
     console.log('[Cockpit.jsx], UseEffect')
-  })
-  
+  }, [])
+
   let assignClasses = [];
   let btnClass = [classes.Button];
 
