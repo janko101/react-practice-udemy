@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import Person from "./Person";
 
 class PersonsList extends Component {
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[PersonsList], getDerived state from props')
+    return state
+  }
+
+  componentShouldUpdate(nextProps, nextState) {
+    console.log('[PersonsList], componentShould update')
+    return true
+  }
+  
   render() {
     console.log("[PersonsList], rendering...");
     return this.props.persons.map((person, index) => {
