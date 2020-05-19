@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import classes from "./Cockpit.module.css";
+import AuthContext from "../context/authContext";
 
 const Cockpit = (props) => {
   const toggleButtonRef = useRef(null);
@@ -39,9 +40,13 @@ const Cockpit = (props) => {
       >
         Toggle Persons
       </button>
-      <button className={btnClass.join(" ")} onClick={props.login}>
-        Log in
-      </button>
+      <AuthContext>
+        {(context) => (
+          <button className={btnClass.join(" ")} onClick={context.login}>
+            Log in
+          </button>
+        )}
+      </AuthContext>
     </div>
   );
 };
